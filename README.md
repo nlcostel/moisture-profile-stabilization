@@ -1,180 +1,239 @@
+# Moisture Profile Control Optimization & Scanner Calibration Case Study
+
+![Reliability Engineering](https://img.shields.io/badge/Discipline-Reliability%20Engineering-blue)
+![Process Control](https://img.shields.io/badge/Discipline-Process%20Control-green)
+![Instrumentation](https://img.shields.io/badge/Focus-Instrumentation%20%26%20Controls-orange)
+![Root Cause Analysis](https://img.shields.io/badge/Method-RCFA-red)
+![FMEA](https://img.shields.io/badge/Method-FMEA-yellow)
+![Data Analytics](https://img.shields.io/badge/Analysis-Variability%20%26%20Profile%20Analysis-lightgrey)
+![Paper Manufacturing](https://img.shields.io/badge/Industry-Pulp%20%26%20Paper-brown)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-MIT-black)
+
+## A Reliability Engineering, Process Control, and Data Analytics Project
+
+This repository demonstrates a real-world reliability and process control remediation project, reconstructed with synthetic data and diagrams for confidentiality.
+The project showcases root cause analysis, moisture control stabilization, scanner calibration, actuator mapping reconstruction, 
+and DCS logic correction on a high-speed manufacturing system.
+
 # 📌 Project Overview
 
-## A tissue machine experienced significant moisture profile variability, frequent loop instability, and numerous operator workarounds due to:
+A tissue machine experienced significant moisture profile variability, unstable feedback control, and recurring operator workarounds
+due to a combination of instrumentation, control logic, and mapping issues. Core contributing factors included:
 
-      Incorrect CD actuator mapping from a lightweighted dilution system
+            Incorrect CD (cross-direction) actuator mapping to scanner zones
 
-      Inaccurate secondary moisture scanner readings after a rebuild
+            Secondary scanner calibration drift following a rebuild
 
-      A primary scanner offline due to communication and alignment issues
+            Primary scanner offline due to communication and alignment faults
 
-      Steam box actuators operating in manual due to “max-out” conditions
+            Steam box actuators maxing out due to improper limits and biasing
 
-      Basis-weight fluctuations impacting downstream moisture
+            Basis-weight variation amplifying moisture instability
 
-      Missing or disabled DCS alarms supporting moisture control
+            Disabled or incorrectly configured DCS alarms
 
-## These issues collectively resulted in:
+These issues led to:
 
-      Poor moisture uniformity across the sheet
+            High sheet moisture variability
 
-      High sheet variability entering converting
+            Quality-related holds and unnecessary downgrades
 
-      Increased quality holds related to out-of-spec moisture
+            Operators running in manual mode due to lack of trust in instrumentation
 
-      Operators running in manual due to lack of trust in instrumentation
+            Inefficient moisture control and downstream converting issues
 
-      Unnecessary downgrades and efficiency losses
+            This project applied reliability engineering, control system troubleshooting, data analytics, and 
+            calibration methods to restore stable, accurate moisture control.
 
-**This project used reliability engineering methods, data analysis, instrument calibration, and DCS logic correction to restore stable moisture control.**
+# 📘 System Background (Sanitized Summary)
+
+The moisture control system includes:
+
+            A primary and secondary moisture scanner providing MD (machine direction) and CD moisture measurements
+
+            A dilution profiling system adjusting local CD basis weight and moisture
+
+            A steam box modulating sheet moisture across multiple zones
+
+            Deckle and edge detection logic defining active sheet width
+
+            DCS PID loops and alarms governing moisture control
+
+            Accurate mapping between actuator zones and scanner bins is essential; misalignment causes inverted or 
+            incorrect moisture corrections.
 
 # 🎯 Objectives
 
-1) Identify root causes of inaccurate CD moisture measurement and unstable control.
+Identify root causes of inaccurate CD moisture measurement
 
-2) Restore correct mapping between dilution profiling actuators and scanner CD zones.
+Restore correct actuator-to-scanner mapping
 
-3) Recalibrate moisture scanning equipment and validate measurement accuracy.
+Recalibrate moisture scanning equipment
 
-4) Return moisture and steam box loops to automatic control with proper limits and tuning.
+Return steam box and moisture loops to stable automatic control
 
-5) Establish new operating standards to prevent recurrence.
+Reinstate alarm functions supporting closed-loop control
 
-6) Quantify the variability improvement after corrective actions.
+Reduce moisture variability to within target performance limits
 
 # 🔍 Root Cause Analysis (Summary)
-Findings Included:
+✔ Incorrect CD Actuator Mapping
 
-✔ Incorrect CD Zone Mapping
+Zones did not match scanner bins, causing inverted or asymmetric profile corrections.
 
-Actuator zones did not correspond to scanner measurement bins, causing asymmetric or inverted profile corrections.
+✔ Scanner Calibration Drift
 
-✔ Scanner Calibration Soft-Failed
+Moisture values deviated significantly from reference samples, leading to inconsistent loop behavior.
 
-Moisture readings drifted significantly from oven-dry reference values, leading to poor control-loop decisions.
+✔ Actuator Saturation (“Max-Out”)
 
-✔ Steam Box Maxed Out
+Steam box zones could not respond due to incorrectly configured limits and bias terms.
 
-Multiple actuators were pinned at upper limits due to improper biasing, making automatic correction impossible.
+✔ Basis Weight Instability
 
-✔ Basis Weight Variation Upstream
-
-BW swings were amplifying moisture instability and masking scanner inaccuracies.
+Upstream BW variation exaggerated moisture swings and masked true moisture deviations.
 
 ✔ Disabled / Missing Alarms
 
-Key DCS alarms for moisture deviation and actuator saturation were disabled or improperly configured.
+Key alarms for moisture deviation and actuator saturation were disabled or mislabeled.
+
+✔ Failure Signatures Observed
+
+            Flatlined CD sections
+
+            Irresponsive zones during bump testing
+
+            Edge misalignment
+
+            Deadband logic preventing actuator movement
+
+            Inaccurate edge trim boundaries
+
+            Drift between scanner measurement and physical samples
 
 # ⚙️ Corrective Actions Implemented
-1. CD Mapping Reconstruction
+            CD Mapping Reconstruction
 
-      Performed systematic bump-testing on each actuator.
+            Conducted bump testing on each actuator zone
 
-      Rebuilt an accurate mapping table correlating actuator index to scanner bin.
+            Rebuilt the actuator-to-scanner mapping table
 
-      Validated left-right alignment and zone pitch.
+            Verified left/right orientation and pitch alignment
 
-2. Moisture Scanner Calibration
+            Ensured mapping integrity with synthetic profile tests
 
-      Conducted moisture curve recalibration.
+            Moisture Scanner Calibration
 
-      Corrected deckle-position configuration issues.
+            Performed moisture curve recalibration
 
-      Restored communication and alignment functions.
+            Corrected deckle configuration errors
 
-      Verified MD and CD stability post-calibration.
+            Restored scanner communication & alignment functionality
 
-3. Steam Box & Dilution System Corrections
+            Verified MD/CD stability after calibration
 
-      Reset actuator limits.
+            Steam Box & Dilution Profiling Corrections
 
-      Eliminated deadbanding conditions.
+            Reset actuator limits and removed saturating biases
 
-      Returned systems from manual override to automatic.
+            Corrected deadband logic
 
-      Resolved saturation scenarios preventing control.
+            Returned loops from manual override to automatic
 
-4. Data Validation
+            Ensured full modulation across all control zones
 
-      Collected before/after moisture profile distributions.
+            DCS Logic Improvements (Sanitized Summary)
 
-      Performed variability analysis (std dev, 2-sigma, CD uniformity).
+            Repaired slope/offset calculation issues
 
-      Verified physical sheet samples for moisture accuracy.
+            Restored alarm blocks for deviations and actuator saturation
 
-5. DCS Logic / Alarm Improvements
+            Corrected labeling inconsistencies for operator displays
 
-      Restored alarm functionality for actuator overload conditions.
+            Improved deckle/edge detection logic
 
-      Re-established moisture deviation alarms with correct thresholds.
+            Updated SOPs for scanner outages and calibration workflows
 
-      Clarified SOPs for operators during scanner outages.
+            Data Validation
+
+            Compared before/after CD profiles
+
+            Ran variability calculations (2-sigma, std dev)
+
+            Correlated moisture trends with steam pressure/temp
+
+            Verified moisture accuracy with physical reference samples (method only, data not included)
+
+# 📊 Before & After Trend Snapshot (Redacted)
+
+(Synthetic illustration based on the real project)
+
+Include your redacted trend image here:
+
+/images/moisture_trend_redacted.png
+
+
+Shows:
+
+      Instability and flatlining before calibration
+
+      Stable, predictable moisture after corrections
 
 # 📈 Results & Performance Improvements
-## Moisture Variability Reduction
 
-CD moisture 2-sigma reduced by ~75–85% after calibration and mapping corrections
-(values represented with illustrative data for confidentiality):
-
-## Metric	Before	After
+**Metric	Before	After**
 
 CD Moisture 2-Sigma	1.1–1.5%	0.18–0.25%
 
-Steam Box Actuator Range	Several maxed	Fully modulating
+Steam Box Actuator Behavior	Several maxed	Fully modulating
 
-MD/Cross-Direction Stability	Poor	Stable and predictable
+Loop Stability	Poor	Stable and reliable
 
-Operator Trust in Loop	Low (manual use)	High (automatic use)
+Operator Confidence	Low (manual mode)	High (automatic mode)
 
-## Operational Improvements
+**Operational Improvements**
 
-Moisture loop fully restored to automatic control.
+            Moisture loop restored to automatic control
 
-Sheet quality at converting significantly improved.
+            Improved converting performance & downstream quality
 
-Reduction in moisture-related quality events.
+            Fewer moisture-related quality events
 
-Improved scanner reliability and accuracy.
+            Enhanced scanner reliability and measurement accuracy
+
+# 🛠 Methods Used
+
+            Bump testing & response validation
+
+            Scanner calibration and reference sample matching
+
+            Statistical analysis (std dev, sigma, histograms)
+
+            Time-series evaluation of moisture, temp, pressure
+
+            CD profile visualization and comparison
+
+            Root cause analysis (FMEA/RCFA methodology)
+
+            DCS logic review and correction
+
+            Multi-team troubleshooting coordination
 
 # 🧠 Engineering Skills Demonstrated
 
-## This project showcases capabilities in:
+            Reliability Engineering: FMEA, RCFA, condition monitoring
 
-      Reliability Engineering
+            Process Control: PID loop tuning, actuator mapping, deadband correction
 
-      Failure Mode & Effects Analysis (FMEA)
+            Instrumentation: scanner alignment, calibration, signal validation
 
-      Condition monitoring (moisture, temp, BW)
+            Data Analytics: variability analysis, trend analysis, moisture modeling
 
-      Root Cause Failure Analysis (RCFA)
+            Project Leadership: vendor coordination, multi-day troubleshooting, documentation
 
-      Instrumentation & Controls
+# 📘 Repository Contents
 
-      Profile actuator mapping
-
-      Scanner calibration
-
-      PID loop analysis
-
-      DCS logic validation
-
-      Data Analytics
-
-      Variability reduction analysis
-
-      Profile visualization
-
-      Time-series moisture trend evaluation
-
-      Project Leadership
-
-      Coordination with vendors, process control, E&I, and operations
-
-      Multi-day troubleshooting events
-
-      Delivering corrective action plans and documentation
-
-# 📘 Repository Contents (Public-Safe Materials)
 /data
 
     synthetic_before_after_cd_profiles.csv
@@ -187,41 +246,44 @@ Improved scanner reliability and accuracy.
 
     sample_cd_profile_plot.png
     mapping_diagram_generic.png
+    moisture_trend_redacted.png
 
 /docs
 
-    sanitized_case_summary.pdf (optional)
+    sanitized_case_summary.pdf   (optional)
 
 /src
 
     cd_profile_analysis.py
 
 
-**(All data and diagrams are recreated with synthetic values to protect confidentiality.)**
+All datasets and diagrams are synthetic recreations for confidentiality.
+
+# 🔐 Synthetic Data Notice
+
+No proprietary mill data, equipment diagrams, DCS logic, or process details are included.
+All values, plots, names, and diagrams have been recreated for public demonstration.
 
 # 🚀 Future Enhancements
 
-Integrate a predictive moisture deviation alert using ML-based anomaly detection
+            ML-based predictive moisture deviation detection
 
-Add a simulated DCS loop tuning tool
+            DCS loop tuning simulation
 
-Build a dashboard version of the moisture stability analytics in Power BI
+            Power BI moisture stability dashboard
+
+            Synthetic steam box digital twin model
 
 # 📫 Contact
 
 Coley Costello
 
-Reliability Engineer • Data Analyst 
+Reliability Engineer • Data Analyst
 
-(Insert LinkedIn or professional contact link)
+[LinkedIn Profile] (add your link)
 
-# LICENSE
+# 📄 License
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+This project is released under the MIT License.
 
-MIT License
-
-This project is licensed under the **MIT License**.  
-You are free to use, modify, and distribute this project, provided proper credit is given.
-
-
+You may use, adapt, and distribute this content with attribution.
