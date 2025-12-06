@@ -1,4 +1,6 @@
-# Moisture Profile Control Optimization & Scanner Calibration Case Study
+<img width="900" height="250" alt="image" src="https://github.com/user-attachments/assets/80ff1307-b163-4d7b-8f79-c814b5721ea0" />
+
+
 
 ![Reliability Engineering](https://img.shields.io/badge/Discipline-Reliability%20Engineering-blue)
 ![Process Control](https://img.shields.io/badge/Discipline-Process%20Control-green)
