@@ -45,14 +45,16 @@ These issues led to:
 
             Inefficient moisture control and downstream converting issues
 
-            This project applied reliability engineering, control system troubleshooting, data analytics, and 
-            calibration methods to restore stable, accurate moisture control.
+            This project applied reliability engineering, control system troubleshooting, 
+            data analytics, and calibration methods to restore stable, 
+            accurate moisture control.
 
 # 📘 System Background (Sanitized Summary)
 
 The moisture control system includes:
 
-            A primary and secondary moisture scanner providing MD (machine direction) and CD moisture measurements
+            A primary and secondary moisture scanner providing MD (machine direction) and 
+            CD moisture measurements
 
             A dilution profiling system adjusting local CD basis weight and moisture
 
@@ -62,8 +64,8 @@ The moisture control system includes:
 
             DCS PID loops and alarms governing moisture control
 
-            Accurate mapping between actuator zones and scanner bins is essential; misalignment causes inverted or 
-            incorrect moisture corrections.
+            Accurate mapping between actuator zones and scanner bins is essential; 
+            misalignment causes inverted or incorrect moisture corrections.
 
 # 🎯 Objectives
 
@@ -169,12 +171,23 @@ Key alarms for moisture deviation and actuator saturation were disabled or misla
 
 # 📊 Before & After Trend Snapshot (Redacted)
 
-(Synthetic illustration based on the real project)
+*Here is the dilution profile at the start of work:*
 
-Include your redacted trend image here:
+<img width="709" height="524" alt="dcs_pre_dpmapping" src="https://github.com/user-attachments/assets/89e4082b-e6f7-45cc-9554-f9aaa87d32e8" />
 
-/images/moisture_trend_redacted.png
+*And a FLUKE image that shows visibly aggressive streaking:*
 
+<img width="693" height="482" alt="fluke_premapping" src="https://github.com/user-attachments/assets/78517f10-6de4-476f-8fc9-64f010c4f13f" />
+
+*This is the dilution profile when work concluded:*
+
+<img width="698" height="524" alt="dcs_post_dpmapping" src="https://github.com/user-attachments/assets/951417d9-3666-4ba7-bc80-b635ea7d26e8" />
+
+*Confirmed by a FLUKE image that shows a more uniform profile and significantly less streaking:*
+
+<img width="638" height="479" alt="fluke_postmapping" src="https://github.com/user-attachments/assets/1d9abf89-0c11-421a-91c4-ece51790f2b6" />
+
+*Please note that FLUKE was permitted to drift off sheet while completing visual checks, min and max temperatures may not be accurate.*
 
 Shows:
 
@@ -184,15 +197,40 @@ Shows:
 
 # 📈 Results & Performance Improvements
 
-**Metric	Before	After**
+**Metrics Before & After**
 
-CD Moisture 2-Sigma	1.1–1.5%	0.18–0.25%
+**CD Moisture 2-Sigma:** 
 
-Steam Box Actuator Behavior	Several maxed	Fully modulating
+Before: 1.1–1.5% 
 
-Loop Stability	Poor	Stable and reliable
+After:0.18–0.25%
 
-Operator Confidence	Low (manual mode)	High (automatic mode)
+*In this trend, marker **M1** is pre-work and marker **M2** is post work*
+
+<img width="748" height="426" alt="parcview_reel_moisture" src="https://github.com/user-attachments/assets/3c5f7928-0518-495a-8153-7f2cda573ee2" />
+
+
+**Steam Box Actuator Behavior**	
+
+Before: Several maxed
+
+After: Fully modulating
+
+**Loop Stability:**
+
+Before: Poor
+
+After: Stable and reliable
+
+*This image references the bump testing completed on the steambox actuators, and shows I correctly positioned them to scanner zones.*
+
+<img width="894" height="395" alt="dcs_steambox_bumptest_results" src="https://github.com/user-attachments/assets/11cc71af-4f1a-4d31-869c-66444302d91d" />
+
+**Operator Confidence:**
+
+Before: Low (manual mode)
+
+After: High (automatic mode)
 
 **Operational Improvements**
 
@@ -236,35 +274,14 @@ Operator Confidence	Low (manual mode)	High (automatic mode)
 
 # 📘 Repository Contents
 
-/data
-
-    synthetic_before_after_cd_profiles.csv
-
-/notebooks
-
-    moisture_profile_variability_analysis.ipynb
-
-/images
-
-    sample_cd_profile_plot.png
-    mapping_diagram_generic.png
-    moisture_trend_redacted.png
-
-/docs
-
-    sanitized_case_summary.pdf   (optional)
-
-/src
-
-    cd_profile_analysis.py
-
+<img width="311" height="637" alt="image" src="https://github.com/user-attachments/assets/4d0429ea-0a76-4917-800d-a50539c91c48" />
 
 All datasets and diagrams are synthetic recreations for confidentiality.
 
 # 🔐 Synthetic Data Notice
 
-No proprietary mill data, equipment diagrams, DCS logic, or process details are included.
-All values, plots, names, and diagrams have been recreated for public demonstration.
+## No proprietary mill data, equipment diagrams, DCS logic, or process details are included.
+## All values, plots, names, and diagrams have been sanitized for public demonstration.
 
 # 🚀 Future Enhancements
 
@@ -281,8 +298,6 @@ All values, plots, names, and diagrams have been recreated for public demonstrat
 Coley Costello
 
 Reliability Engineer • Data Analyst
-
-[LinkedIn Profile] (add your link)
 
 # 📄 License
 
